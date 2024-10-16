@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PDF Upload & Categorization</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Upload Your PDF & Categorize</h1>
+            <form
+                id="pdf-upload-form"
+                action="/upload"
+                method="POST"
+                enctype="multipart/form-data"
+            >
+                <!-- PDF Upload Section -->
+                <div class="upload-section">
+                    <label for="pdfFile">Select a PDF to upload:</label>
+                    <input
+                        type="file"
+                        id="pdfFile"
+                        name="pdfFile"
+                        accept=".pdf"
+                        required
+                    />
+                </div>
+
+                <!-- Category Selection -->
+                <div class="category-section">
+                    <label for="category">Select a Category:</label>
+                    <select id="category" name="category" required>
+                        <option value="">--Choose a Category--</option>
+                        <option value="income">Income</option>
+                        <option value="expenses">Expenses</option>
+                        <option value="assets">Assets</option>
+                        <option value="liabilities">Liabilities</option>
+                        <option value="capital">Capital</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="submit-btn">
+                    Upload & Categorize
+                </button>
+            </form>
+
+            <!-- Insights Display Section -->
+            <div class="insights-section">
+                <h2>Visual Insights</h2>
+                <p>
+                    No data available yet. Please upload a PDF to view insights.
+                </p>
+                <!-- This is where the visual insights will be displayed -->
+                <div id="insights-display"></div>
+            </div>
+        </div>
+    </body>
+</html>
