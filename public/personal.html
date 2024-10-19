@@ -1,91 +1,80 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>PDF Upload & Categorization</title>
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    <body>
-        <div class="container">
-            <h1>Upload Your PDF & Categorize</h1>
-            <form
-                id="pdf-upload-form"
-                action="/upload"
-                method="POST"
-                enctype="multipart/form-data"
-            >
-                <!-- PDF Upload Section -->
-                <div class="upload-section">
-                    <label for="pdfFile">Select a PDF to upload:</label>
-                    <input
-                        type="file"
-                        id="pdfFile"
-                        name="pdfFile"
-                        accept=".pdf"
-                        required
-                    />
-                </div>
-
-                <!-- Category Selection -->
-                <div class="category-section">
-                    <label for="category">Select a Category:</label>
-                    <select id="category" name="category" required>
-                        <option value="">--Choose a Category--</option>
-                        <option value="income">Income</option>
-                        <option value="expenses">Expenses</option>
-                        <option value="savings">Savings</option>
-                    </select>
-                </div>
-
-                <!-- Requirements Selection -->
-                <div class="requirements-section">
-                    <label>Requirements:</label>
-                    <div>
-                        <input type="checkbox" id="income-statement" name="requirements" value="Income Statement" />
-                        <label for="income-statement">Income Statement</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="financial-statement" name="requirements" value="Financial Statement" />
-                        <label for="financial-statement">Financial Statement</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="trial-balance" name="requirements" value="Trial Balance" />
-                        <label for="trial-balance">Trial Balance</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="cash-account" name="requirements" value="Cash Account" />
-                        <label for="cash-account">Cash Account</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="sales-account" name="requirements" value="Sales Account" />
-                        <label for="sales-account">Sales Account</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="purchase-account" name="requirements" value="Purchase Account" />
-                        <label for="purchase-account">Purchase Account</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="payroll" name="requirements" value="Payroll" />
-                        <label for="payroll">Payroll</label>
-                    </div>
-                </div>
-
-                <!-- Submit Button -->
-                <button type="submit" class="submit-btn">
-                    Upload & Categorize
-                </button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Money Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Personal Money Tracker</h1>
+        
+        <!-- PDF Upload Section -->
+        <div class="upload-section">
+            <h2>Upload PDFs</h2>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <label for="pdfFiles">Upload multiple PDFs:</label>
+                <input type="file" id="pdfFiles" name="pdfFiles" multiple accept=".pdf">
+                <button type="submit">Upload PDFs</button>
             </form>
-
-            <!-- Insights Display Section -->
-            <div class="insights-section">
-                <h2>Visual Insights</h2>
-                <p>
-                    No data available yet. Please upload a PDF to view insights.
-                </p>
-                <!-- This is where the visual insights will be displayed -->
-                <div id="insights-display"></div>
-            </div>
         </div>
-    </body>
+
+        <!-- Add Cash and Bank Details -->
+        <div class="manual-section">
+            <h2>Manual Entry for Cash/Bank</h2>
+            <form id="manualForm">
+                <label for="cash">Enter Cash:</label>
+                <input type="number" id="cash" name="cash" placeholder="Enter cash amount">
+
+                <label for="bank">Enter Bank Balance:</label>
+                <input type="number" id="bank" name="bank" placeholder="Enter bank balance">
+
+                <button type="submit">Add Cash/Bank</button>
+            </form>
+        </div>
+
+        <!-- Income Section -->
+        <div class="income-section">
+            <h2>Request Income</h2>
+            <label for="incomeType">Choose income type:</label>
+            <select id="incomeType" name="incomeType">
+                <option value="salary">Salary</option>
+                <option value="investment">Investment</option>
+                <option value="other">Other</option>
+            </select>
+            <input type="number" id="incomeAmount" placeholder="Enter income amount">
+            <button onclick="addIncome()">Add Income</button>
+        </div>
+
+        <!-- Expenses Section -->
+        <div class="expenses-section">
+            <h2>Request Expenses</h2>
+            <label for="expenseType">Choose expense type:</label>
+            <select id="expenseType" name="expenseType">
+                <option value="rent">Rent</option>
+                <option value="groceries">Groceries</option>
+                <option value="utilities">Utilities</option>
+                <option value="entertainment">Entertainment</option>
+            </select>
+            <input type="number" id="expenseAmount" placeholder="Enter expense amount">
+            <button onclick="addExpense()">Add Expense</button>
+        </div>
+
+        <!-- Savings Section -->
+        <div class="savings-section">
+            <h2>Your Savings</h2>
+            <div id="savingsOutput">No savings calculated yet.</div>
+        </div>
+
+        <!-- Visual Insights Section -->
+        <div class="insights-section">
+            <h2>Visual Insights</h2>
+            <div id="insights"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
+
