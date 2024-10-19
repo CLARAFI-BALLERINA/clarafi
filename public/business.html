@@ -1,93 +1,77 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>PDF Upload & Categorization</title>
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    <body>
-        <div class="container">
-            <h1>Upload Your PDF & Categorize</h1>
-            <form
-                id="pdf-upload-form"
-                action="/upload"
-                method="POST"
-                enctype="multipart/form-data"
-            >
-                <!-- PDF Upload Section -->
-                <div class="upload-section">
-                    <label for="pdfFile">Select a PDF to upload:</label>
-                    <input
-                        type="file"
-                        id="pdfFile"
-                        name="pdfFile"
-                        accept=".pdf"
-                        required
-                    />
-                </div>
-
-                <!-- Category Selection -->
-                <div class="category-section">
-                    <label for="category">Select a Category:</label>
-                    <select id="category" name="category" required>
-                        <option value="">--Choose a Category--</option>
-                        <option value="income">Income</option>
-                        <option value="expenses">Expenses</option>
-                        <option value="assets">Assets</option>
-                        <option value="liabilities">Liabilities</option>
-                        <option value="capital">Capital</option>
-                    </select>
-                </div>
-
-                <!-- Requirements Selection -->
-                <div class="requirements-section">
-                    <label>Requirements:</label>
-                    <div>
-                        <input type="checkbox" id="income-statement" name="requirements" value="Income Statement" />
-                        <label for="income-statement">Income Statement</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="financial-statement" name="requirements" value="Financial Statement" />
-                        <label for="financial-statement">Financial Statement</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="trial-balance" name="requirements" value="Trial Balance" />
-                        <label for="trial-balance">Trial Balance</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="cash-account" name="requirements" value="Cash Account" />
-                        <label for="cash-account">Cash Account</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="sales-account" name="requirements" value="Sales Account" />
-                        <label for="sales-account">Sales Account</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="purchase-account" name="requirements" value="Purchase Account" />
-                        <label for="purchase-account">Purchase Account</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="payroll" name="requirements" value="Payroll" />
-                        <label for="payroll">Payroll</label>
-                    </div>
-                </div>
-
-                <!-- Submit Button -->
-                <button type="submit" class="submit-btn">
-                    Upload & Categorize
-                </button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Data Upload and Reporting</title>
+    <link rel="stylesheet" href="bussiness.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Business Financial Tracker</h1>
+        
+        <!-- PDF Upload Section -->
+        <section class="file-upload-section">
+            <h2>Upload PDF Files</h2>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <input type="file" id="pdfFiles" name="pdfFiles[]" multiple accept=".pdf">
+                <button type="submit" id="uploadBtn">Upload Files</button>
             </form>
+        </section>
 
-            <!-- Insights Display Section -->
-            <div class="insights-section">
-                <h2>Visual Insights</h2>
-                <p>
-                    No data available yet. Please upload a PDF to view insights.
-                </p>
-                <!-- This is where the visual insights will be displayed -->
-                <div id="insights-display"></div>
+        <!-- Manual Entry Section -->
+        <section class="manual-entry-section">
+            <h2>Manual Entry</h2>
+            <form id="manualEntryForm">
+                <label for="transactionType">Transaction Type:</label>
+                <select id="transactionType" name="transactionType">
+                    <option value="cash">Cash</option>
+                    <option value="bank">Bank</option>
+                </select>
+
+                <label for="category">Category:</label>
+                <select id="category" name="category">
+                    <option value="assets">Assets</option>
+                    <option value="income">Income</option>
+                    <option value="expenses">Expenses</option>
+                    <option value="capital">Capital</option>
+                    <option value="liability">Liability</option>
+                </select>
+
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" placeholder="Enter amount" required>
+
+                <button type="submit" id="addEntryBtn">Add Entry</button>
+            </form>
+        </section>
+
+        <!-- Reports Section -->
+        <section class="reports-section">
+            <h2>Generate Reports</h2>
+            <form id="reportForm">
+                <label for="reportType">Select Report:</label>
+                <select id="reportType" name="reportType">
+                    <option value="incomeStatement">Income Statement</option>
+                    <option value="financialStatement">Financial Statement</option>
+                    <option value="trialBalance">Trial Balance</option>
+                    <option value="cashBook">Cash Book</option>
+                    <option value="payroll">Payroll</option>
+                    <option value="forecast">Forecast</option>
+                </select>
+                <button type="submit" id="generateReportBtn">Generate Report</button>
+            </form>
+        </section>
+
+        <!-- Insights Section -->
+        <section class="insights-section">
+            <h2>Visual Insights</h2>
+            <div id="insightsDisplay">
+                <!-- Visualization/Insights can be displayed here (e.g., graphs or charts) -->
+                <p>No insights to display yet.</p>
             </div>
-        </div>
-    </body>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
 </html>
