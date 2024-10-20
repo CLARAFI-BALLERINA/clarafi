@@ -44,11 +44,12 @@ Setup Instructions
    - [Optional] Integrated with accounting software such as QuickBooks, Xero, etc. for business users.
 
 2. Installation:
-   - No installation is required. Simply access the website via the provided URL, sign up, and start using the platform.
+
+ - No installation is required. Simply access the website via the provided URL, sign up, and start using the platform.
 
 3. Database Setup*(For Admins):
-   - Ensure MongoDB or a similar database system is set up if hosting the application.
-   - Use the pre-built configuration to connect the application to the database for storing user financial data.
+ - Ensure MongoDB or a similar database system is set up if hosting the application.
+- Use the pre-built configuration to connect the application to the database for storing user financial data.
 
  Reporting Features
 - Income Reports: Show detailed income sources and growth over time.
