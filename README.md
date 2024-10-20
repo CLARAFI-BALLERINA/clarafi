@@ -2,7 +2,7 @@
 Ballerina Buildathon 
 CLARAFI  Website - README
 
-Introduction
+#Introduction
    The clarafi is a comprehensive platform designed to assist both individuals and soletrading business owner in managing and analyzing their financial data. This tool allows users to easily track income, expenses, assets, liabilities, and generate detailed financial reports that offer a clear view of their financial status. The platform is user-friendly and designed to accommodate different types of users, whether they need it for personal finance or for managing a business.
 Key Features
 For Individuals:
